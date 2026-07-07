@@ -1,36 +1,35 @@
-# 🏛️ Paleontological Museum Interactive Kiosk
+# 🏛️ Kiosco Interactivo para Museo Paleontológico
 
-An interactive, touchscreen-optimized kiosk application designed for public deployment. Built with a decoupled architecture to ensure memory efficiency and high availability in high-traffic environments.
+Una aplicación de kiosco interactivo, optimizada para pantallas táctiles y diseñada para despliegues en espacios públicos. Construida bajo una arquitectura desacoplada para garantizar la eficiencia de memoria y alta disponibilidad en entornos de alto tráfico.
 
-## 🚀 Architectural Highlights
+## 🚀 Características Arquitectónicas
 
-- **Spatial Ergonomics:** UI anchored to the bottom third of the screen, complying with Fitts's Law for 55-inch public displays.
-- **Finite State Machine (FSM):** Implemented a rigorous routing system (Hub and Spoke pattern) separating the Attract Loop, Catalog, and Detail views.
-- **Hardware Abuse Protection:** Custom `useDebounce` hooks and UI locking mechanisms to defend the PostgreSQL database against rapid concurrent requests.
-- **Data Projection & Static Serving:** Optimized SQL queries to prevent over-fetching, coupled with an Express static file server to deliver binary assets without crashing the V8 Engine RAM.
-- **Glassmorphism UI:** Modern, translucent aesthetic built with Tailwind CSS v4 Just-In-Time compiler.
+- **Ergonomía Espacial:** Interfaz de usuario (UI) anclada en el tercio inferior de la pantalla, cumpliendo con la Ley de Fitts para pantallas públicas de 55 pulgadas.
+- **Máquina de Estados Finitos (FSM):** Implementación de un sistema riguroso de enrutamiento (patrón Hub and Spoke) que separa las vistas de Bucle de Atracción (Attract Loop), Catálogo y Detalle.
+- **Protección contra Abuso de Hardware:** Desarrollo de hooks personalizados (`useDebounce`) y mecanismos de bloqueo de UI para defender la base de datos PostgreSQL contra peticiones concurrentes masivas.
+- **Proyección de Datos y Servidor Estático:** Consultas SQL optimizadas para prevenir el _over-fetching_, acopladas con un servidor de archivos estáticos en Express para entregar recursos binarios (assets) sin colapsar la memoria RAM del motor V8.
+- **Interfaz Glassmorphism:** Estética moderna y translúcida construida con el compilador Just-In-Time de Tailwind CSS v4.
 
-## 🛠️ Tech Stack
+## 🛠️ Stack Tecnológico
 
 - **Frontend:** React (Vite), TypeScript, Tailwind CSS v4
 - **Backend:** Node.js, Express
-- **Database:** PostgreSQL
-- **Deployment Target:** Electron (Kiosk Mode) / Windows Edge LAN
+- **Base de Datos:** PostgreSQL
+- **Entorno de Despliegue:** Electron (Modo Kiosco) / Windows Edge LAN
 
-## ⚙️ Local Setup Instructions
+## ⚙️ Instrucciones de Despliegue Local
 
-1. **Clone the repository:**
-   \`git clone https://github.com/your-username/museo-sistema-interactivo.git\`
-2. **Install Dependencies:**
-   - In `/backend`: \`npm install\`
-   - In `/frontend`: \`npm install\`
-3. **Database Configuration:**
-   Create a \`.env\` file in the \`/backend\` directory with the following variables:
-   \`\`\`env
-   DB_USER=your_postgres_user
+1. **Clonar el repositorio:**
+   `git clone https://github.com/tu-usuario/museo-sistema-interactivo.git`
+2. **Instalar Dependencias:**
+   - En `/backend`: `npm install`
+   - En `/frontend`: `npm install`
+3. **Configuración de la Base de Datos:**
+   Crear un archivo `.env` en el directorio `/backend` con las siguientes variables:
+   ```env
+   DB_USER=tu_usuario_postgres
    DB_HOST=localhost
    DB_NAME=museum_db
-   DB_PASSWORD=your_password
+   DB_PASSWORD=tu_contraseña
    DB_PORT=5432
-   \`\`\`
-4. **Boot the System:** Start both the Vite frontend and Node backend servers.
+   ```
